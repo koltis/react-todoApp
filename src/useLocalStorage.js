@@ -29,7 +29,7 @@ export const useLocalStorage = (List) => {
     setList((prevState) => {
       const newList = prevState.filter((k) => k.id !== item.id);
       saveItems(newList);
-      setList(newList);
+      return newList;
     });
   };
 
@@ -39,7 +39,7 @@ export const useLocalStorage = (List) => {
       item.id = new Date().getTime();
       const newList = [...prevState, item];
       saveItems(newList);
-      setList(newList);
+      return newList;
     });
   };
 
